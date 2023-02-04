@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "name": "apollo-scooters",
+  "version": "1.0.0",
+  "description": "Apollo Scooters dev excercise",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --config webpack.config.js",
+    "watch": "webpack --mode=development --config webpack.config.js --watch",
+    "lint:scripts": "eslint -c .eslintrc 'app/scripts/**/*'",
+    "lint:scripts:fix": "npm run lint:scripts -- --fix",
+    "lint:styles": "stylelint 'app/styles/**/*.scss'",
+    "lint:styles:fix": "npm run lint:styles -- --fix",
+    "release:major": "npm version major",
+    "release:minor": "npm version minor",
+    "release:patch": "npm version patch",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-watch-files-plugin": "^1.2.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/runtime": "^7.16.7",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "husky": "^7.0.4",
+    "jquery": "^3.6.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "postcss": "^8.4.4",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.2.0",
+    "postcss-scss": "^4.0.2",
+    "prettier": "^2.5.0",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.45.2",
+    "sass-loader": "^12.4.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-scss": "^4.0.0"
+  }
+}
