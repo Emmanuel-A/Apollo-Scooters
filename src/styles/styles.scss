@@ -1,0 +1,68 @@
+// Import Styles
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./global.scss";
+
+.header-wrapper {
+    border: 0;
+}
+
+.header {
+    .header__heading {
+        display: none;
+    }
+    .header__inline-menu {
+        display: none;
+    }
+    .header__icon--search {
+        display: none;
+    }
+}
+
+#MainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .home-collection-list {
+        h2 {
+            text-align: center;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .home-product-list {
+            .section-header {
+                text-align: center;
+                color: $color-black;
+            }
+
+            .grid__item {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+
+                .product-card__title {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    font-size: 26px;
+                    cursor: pointer;
+                    color: $color-black;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .product-modal {
+            display: none;
+        }
+    }
+}
+
+.footer {
+    border: 0;
+}

@@ -1,6 +1,54 @@
 /*!***********************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/styles/styles.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/styles.scss ***!
   \***********************************************************************************************************************************************************/
-body {
-  background-color: red;
+.header-wrapper {
+  border: 0;
+}
+
+.header .header__heading {
+  display: none;
+}
+.header .header__inline-menu {
+  display: none;
+}
+.header .header__icon--search {
+  display: none;
+}
+
+#MainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#MainContent .home-collection-list h2 {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+#MainContent .home-collection-list .home-product-list .section-header {
+  text-align: center;
+  color: #000000;
+}
+#MainContent .home-collection-list .home-product-list .grid__item {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+#MainContent .home-collection-list .home-product-list .grid__item .product-card__title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 26px;
+  cursor: pointer;
+  color: #000000;
+}
+#MainContent .home-collection-list .home-product-list .grid__item .product-card__title:hover {
+  text-decoration: underline;
+}
+#MainContent .home-collection-list .product-modal {
+  display: none;
+}
+
+.footer {
+  border: 0;
 }

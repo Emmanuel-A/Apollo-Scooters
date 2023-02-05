@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "resize-observer-browser"
+    ],
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "noUnusedParameters": false,
+    "noStrictGenericChecks": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node",
+    "node_modules"
+  ],
+  "include": [
+    "src/assets/ts/types/*.d.ts",
+    "src/**/*"
+  ]
+}

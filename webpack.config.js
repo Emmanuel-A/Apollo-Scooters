@@ -3,7 +3,8 @@ const Extract = require("mini-css-extract-plugin");
 const WebpackWatchPlugin = require("webpack-watch-files-plugin").default;
 
 module.exports = {
-  entry: `${__dirname}/app/scripts/index.js`,
+  mode: 'development',
+  entry: `${__dirname}/src/index.ts`,
   output: {
     path: path.resolve(__dirname, "assets"),
     filename: "scripts.js",
@@ -11,28 +12,36 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /(node_modules)/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-            plugins: ["@babel/transform-runtime"],
-          },
+          loader: "ts-loader"
         },
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.s[ac]ss$/i,
         use: [Extract.loader, "css-loader", "postcss-loader", "sass-loader"],
       },
+      {
+        test: /\.(js|jsx)$/i,
+        loader: "babel-loader",
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        type: "asset",
+      },
     ],
+  },
+  devtool: false,
+  resolve: {
+    extensions: ['.ts', '.js']
   },
   plugins: [
     new Extract({
       filename: "styles.css",
     }),
     new WebpackWatchPlugin({
-      files: ["./app/**/*", "./app/**/**/*"],
-    }),
-  ],
+      files: ["./app/**/*", "./app/**/**/*"]
+    })
+  ]
 };
