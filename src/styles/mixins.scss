@@ -1,0 +1,20 @@
+
+@import "./variables.scss";
+
+@mixin close-remove-btn {
+    border: 0;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    color: $color-white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@mixin checkout-btn {
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: $color-blue;
+    border: 1px solid $color-blue;
+    color: $color-white;
+} 

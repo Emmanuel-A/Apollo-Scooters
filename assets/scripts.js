@@ -61,10 +61,8 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ "./src/styles/styles.scss");
-// import App from "./scripts/main";
 
 window.addEventListener('DOMContentLoaded', () => {
-    console.log('Golden');
 });
 
 })();

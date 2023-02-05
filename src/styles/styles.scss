@@ -1,7 +1,7 @@
 // Import Styles
 @import "./variables.scss";
 @import "./mixins.scss";
-@import "./global.scss";
+@import "./modal.scss";
 
 .header-wrapper {
     border: 0;
@@ -57,9 +57,9 @@
             }
         }
 
-        .product-modal {
-            display: none;
-        }
+        // .product-modal {
+        //     display: none;
+        // }
     }
 }
 

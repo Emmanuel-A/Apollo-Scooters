@@ -1,5 +1,4 @@
 <div class="page-width home-collection-list">
-  {% include 'product-modal' %}
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h2>{{ section.settings.title | escape }}</h2>
@@ -29,7 +28,7 @@
     {% for product in collection.products limit: product_limit %}
       <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}" data-product="{{ product.title }} product-card">
         <span class="product-card__title">{{ product.title }}</span>
-
+        {% include 'product-modal' %}
       </li>
     {% else %}
       <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">

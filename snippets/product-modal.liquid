@@ -1,20 +1,23 @@
 <div class="product-modal">
-  <button class="close"></button>
-  <div class="product-image-wrapper">
-    <img class="product-image" src="">   
+  <div class="product-modal__header">
+    <p class="product-modal__header-product-price">{{ product.price | money }}</p>
+    <button class="product-modal__header-close">x</button>
   </div>
-  <div class="product-details-wrapper">
-    <div class="product-details">
-      <h3 class="product-title"></h3>
-      <p class="product-price"></p>
+  <div class="product-modal__body">
+    <div class="product-modal__body-image-wrapper">
+      <img class="product-modal__body-image" src="{{ product.featured_image.src | img_url: '1080x1080' }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
     </div>
-    <div class="parts-wrapper">
-      <div class="parts-details">
-        <p class="parts-title"></p>
-        <p class="parts-price"></p>
-        <button class="remove"></button>
+    <div class="product-modal__parts-wrapper">
+      <div class="product-modal__parts-wrapper-body">
+        <p class="product-modal__parts-wrapper-heading">Parts</p>
+        {% for product in collections["parts"].products %}
+          <div class="product-modal__parts">
+            <p class="product-modal__parts-details">{{ product.title }} - <span class="product-modal__parts-price">{{ product.price | money }}</span></p>
+            <button class="product-modal__parts-remove">x</button>
+          </div>
+        {% endfor %}
+        <button class="product-modal__parts-checkout-btn">Add to bag</button>
       </div>
-      <button class="add-to-bag"></button>
     </div>
   </div>
 </div>

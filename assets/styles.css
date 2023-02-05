@@ -1,6 +1,96 @@
 /*!***********************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/styles.scss ***!
   \***********************************************************************************************************************************************************/
+.product-modal__header {
+  position: relative;
+}
+.product-modal__header-product-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin-top: 0;
+}
+.product-modal__header-close {
+  border: 0;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  color: #FFFFFF;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #000000;
+  top: 0;
+  position: absolute;
+  right: 0;
+}
+
+.product-modal__body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.product-modal__body-image-wrapper {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-modal__parts-wrapper {
+  width: 40%;
+}
+.product-modal__parts-wrapper-heading {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.product-modal__parts {
+  background-color: #F1F1F1;
+  border-right: 1px solid #9B9B9B;
+  border-left: 1px solid #9B9B9B;
+  border-bottom: 1px solid #9B9B9B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+.product-modal__parts:first-of-type {
+  border-top: 1px solid #9B9B9B;
+}
+.product-modal__parts-details {
+  width: 350px;
+  line-height: 18px;
+  font-size: 16px;
+  text-align: center;
+  margin-right: 30px;
+}
+.product-modal__parts-remove {
+  border: 0;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  color: #FFFFFF;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #FF4040;
+}
+.product-modal__parts-checkout-btn {
+  text-transform: uppercase;
+  font-size: 12px;
+  background-color: #004fec;
+  border: 1px solid #004fec;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 10px 0;
+}
+
 .header-wrapper {
   border: 0;
 }
@@ -44,9 +134,6 @@
 }
 #MainContent .home-collection-list .home-product-list .grid__item .product-card__title:hover {
   text-decoration: underline;
-}
-#MainContent .home-collection-list .product-modal {
-  display: none;
 }
 
 .footer {
