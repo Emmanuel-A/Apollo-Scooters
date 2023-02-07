@@ -100,6 +100,10 @@ var __webpack_exports__ = {};
   !*** ./src/index.ts ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addToCart": () => (/* binding */ addToCart),
+/* harmony export */   "updateCart": () => (/* binding */ updateCart)
+/* harmony export */ });
 /* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ "./src/styles/styles.scss");
 /* harmony import */ var _scripts_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/app */ "./src/scripts/app.ts");
 /* harmony import */ var _scripts_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scripts_app__WEBPACK_IMPORTED_MODULE_1__);
@@ -119,9 +123,29 @@ const partsImage = document.querySelectorAll('.product-modal__parts-image');
 const partsChart = document.querySelector('.product-modal__parts-wrapper');
 const partsInfo = document.querySelectorAll('.product-modal__parts');
 const removePart = document.querySelectorAll('.product-modal__parts-remove');
-const addtocart = (partsData) => {
+const checkoutBtn = document.querySelector('.product-modal__parts-checkout-btn');
+let items = [];
+const addToCart = (partsData) => {
     console.log('Adding to cart');
     fetch("/cart/add.js", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(partsData),
+    })
+        .then((response) => __awaiter(void 0, void 0, void 0, function* () {
+        const result = yield response.json();
+        console.log(result);
+        return result;
+    }))
+        .catch((error) => {
+        console.error("Error:", error);
+    });
+};
+const updateCart = (partsData) => {
+    console.log('Updating cart');
+    fetch("/cart/update.js", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -147,9 +171,15 @@ const addPart = (partID) => {
                 id: partID,
                 quantity: 1,
             };
-            addtocart(addedPartsData);
+            items.push(addedPartsData);
+            console.log({ items });
         }
     });
+    return items;
+};
+const removePartDetails = (partID) => {
+    items = items.filter((x) => x.id !== partID);
+    updateCart(items);
 };
 partsImage.forEach(($element) => {
     const partsImageID = $element.getAttribute('data-id');
@@ -169,8 +199,10 @@ scooterName.forEach(($element) => {
     });
 });
 removePart.forEach(($element) => {
+    const partsDetailsID = $element.parentElement.getAttribute('data-id');
     $element.addEventListener("click", () => {
         $element.parentElement.classList.add('hide');
+        removePartDetails(partsDetailsID);
         if (partsInfo.length === 0) {
             partsChart.classList.add('hide');
         }
