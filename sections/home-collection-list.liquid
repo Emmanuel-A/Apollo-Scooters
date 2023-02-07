@@ -26,12 +26,12 @@
 
   <ul class="grid grid--uniform grid--view-items {% if template == 'index' %}home-product-list{% endif %} ">
     {% for product in collection.products limit: product_limit %}
-      <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}" data-product="{{ product.title }} product-card">
+      <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }} product-card__title-wrapper" data-id="{{ product.id }}">
         <span class="product-card__title">{{ product.title }}</span>
-        {% include 'product-modal' %}
+          {% include 'product-modal' %}
       </li>
     {% else %}
-      <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+      <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }} product-card__title-wrapper" data-id="{{ product.id }}">
           <div class="grid-view-item product-card">
               <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
                   <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
@@ -55,7 +55,35 @@
     </div>
   {% endif %}
 </div>
-  
+
+
+{% comment %} <script>
+  export const addtocart = (formData) => {
+    document.querySelector(".loading").classList.add("is-active");
+    fetch(window.Shopify.routes.root + "cart/add.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(async (response) => {
+        const reader = await response.json();
+        document.querySelector(".loading").classList.remove("is-active");
+        cart.renderContents({
+          ...reader.items[0],
+          sections: reader.sections,
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        if (cart && cart.classList.contains("is-empty"))
+          cart.classList.remove("is-empty");
+      });
+  };
+</script> {% endcomment %}
   
   
   {% schema %}

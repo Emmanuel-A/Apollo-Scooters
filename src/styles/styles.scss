@@ -3,6 +3,15 @@
 @import "./mixins.scss";
 @import "./modal.scss";
 
+
+.hide {
+    @include hide;
+}
+
+.show {
+    @include show;
+}
+
 .header-wrapper {
     border: 0;
 }
@@ -42,24 +51,30 @@
                 width: 100%;
                 max-width: 100%;
                 text-align: center;
+                overflow: hidden;
 
                 .product-card__title {
                     text-transform: uppercase;
                     font-weight: 700;
                     font-size: 26px;
-                    cursor: pointer;
                     color: $color-black;
+                    cursor: pointer;
 
                     &:hover {
                         text-decoration: underline;
                     }
+
+                    &.active + .product-modal {
+                        max-height: 100%;
+                        -webkit-transition: max-height 0.25s ease-in; 
+                        -moz-transition: max-height 0.25s ease-in; 
+                        -ms-transition: max-height 0.25s ease-in; 
+                        -o-transition: max-height 0.25s ease-in; 
+                        transition: max-height 0.25s ease-in;
+                    }
                 }
             }
         }
-
-        // .product-modal {
-        //     display: none;
-        // }
     }
 }
 

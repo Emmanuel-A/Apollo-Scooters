@@ -1,46 +1,47 @@
-.product-modal__header {
-    position: relative;
+.product-modal {
+    max-height: 0;
+    -webkit-transition: max-height 0.25s ease-out; 
+    -moz-transition: max-height 0.25s ease-out; 
+    -ms-transition: max-height 0.25s ease-out; 
+    -o-transition: max-height 0.25s ease-out; 
+    transition: max-height 0.25s ease-out;  
+    overflow: hidden;
+}
 
+.product-modal__header {
     &-product-price {
         font-size: 18px;
         font-weight: 600;
         color: $color-black;
         margin-top: 0;
     }
-
-    &-close {
-        @include close-remove-btn;
-        background-color: $color-black;
-        top: 0;
-        position: absolute;
-        right: 0;
-    }
 }
 
 .product-modal__body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
 
     &-image-wrapper {
-        width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
+        position: relative;
     }
 }
 
 .product-modal__parts-wrapper {
-    width: 40%;
+    width: 350px;
+    margin-bottom: 30px;
 
     &-heading {
-        font-size: 18px;
+        font-size: 16px;
         text-transform: uppercase;
         margin: 0;
-        padding: 10px 0;
+        padding: 5px 0;
         background-color: $color-black;
         color: $color-white;
     }
@@ -54,22 +55,70 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 8px;
+    padding: 0 10px;
+
+    // Applying background color transition to parts chart list
+    animation-name: animatePartsDetails;
+    animation-duration: 4s;
+    animation-timing-function: ease;
 
     &:first-of-type {
         border-top: 1px solid $color-grey;
     }
 
+    &-image {
+        opacity: 0;
+        z-index: 1;
+        position: absolute;
+        -webkit-transition: opacity 0.25s ease-in-out; 
+        -moz-transition: opacity 0.25s ease-in-out; 
+        -ms-transition: opacity 0.25s ease-in-out; 
+        -o-transition: opacity 0.25s ease-in-out; 
+        transition: opacity 0.25s ease-in-out;
+
+        &.front-break {
+            bottom: 56px;
+            left: 209px;
+            width: 50px;
+            height: 60px;
+        }
+
+        &.rear-break {
+            bottom: 54px;
+            left: 397px;
+            width: 51px;
+            height: 30px;
+        }
+
+        &.stem-bar {
+            width: 37px;
+            height: 150px;
+            top: 113px;
+            left: 215px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
+    }
+
+    &-list {
+        padding: 0;
+    }
+
     &-details {
         width: 350px;
-        line-height: 18px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
+        margin-top: 8px;
+        margin-bottom: 8px;
         margin-right: 30px;
+        color: $color-black;
     }
 
     &-remove {
-        @include close-remove-btn;
+        @include remove-btn;
         background-color: $color-red;
     }
 
@@ -77,5 +126,22 @@
         @include checkout-btn;
         width: 100%;
         padding: 10px 0;
+    }
+
+    @keyframes animatePartsDetails {
+        0% {
+            background-color:  $color-green;
+        }
+        100% {
+            background-color:  $color-light-grey;
+        }
+    }
+    @-webkit-keyframes animatePartsDetails {
+        0% {
+            background-color:  $color-green;
+        }
+        100% {
+            background-color:  $color-light-grey;
+        }
     }
 }

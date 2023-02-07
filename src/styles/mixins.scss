@@ -1,13 +1,13 @@
 
 @import "./variables.scss";
 
-@mixin close-remove-btn {
+@mixin remove-btn {
     border: 0;
     border-radius: 100%;
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     color: $color-white;
-    font-size: 16px;
+    font-size: 11px;
     cursor: pointer;
 }
 
@@ -17,4 +17,15 @@
     background-color: $color-blue;
     border: 1px solid $color-blue;
     color: $color-white;
+    cursor: pointer;
 } 
+
+@mixin hide {
+    display: none;
+    visibility: hidden;
+}
+
+@mixin show {
+    display: block;
+    visibility: visible;
+}
